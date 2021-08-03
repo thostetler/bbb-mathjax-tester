@@ -1,21 +1,7 @@
-const updateText = (text) => {
-  const math = /\$.*<(sub|SUB)>(.*?)<\/(sub|SUB)>.*\$/g;
-  const matches = text.matchAll(math);
-  for (const match of matches) {
-    console.log(match);
-  }
-  return text;
-};
-
 window.renderMathJax = function () {
   const el = document.getElementById("mathjax");
-  el.innerHTML = updateText(el.innerHTML);
   MathJax.Hub.Queue(["Typeset", MathJax.Hub, el]);
   const node = MathJax.Hub.getAllJax(el)[0];
-  console.log(node);
-  // if (typeof node.rerender === "function") {
-  //   node.rerender();
-  // }
 };
 
 window.absChange = function () {
