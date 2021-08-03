@@ -12,6 +12,7 @@ let data = {
   api_token: "",
   bibcode: "",
   abstract: "",
+  title: ""
 };
 
 app.get("/", function (req, res) {
@@ -19,7 +20,6 @@ app.get("/", function (req, res) {
 });
 
 app.post("/", async function (req, res) {
-  console.log(req.body);
   data = {
     ...data,
     ...req.body,
@@ -44,7 +44,7 @@ app.post("/", async function (req, res) {
       const { data: results } = await axios.get(
         "https://api.adsabs.harvard.edu/v1/search/query",
         {
-          params: { q: `identifier:${bibcode}`, fl: "id,abstract" },
+          params: { q: `identifier:${bibcode}`, fl: "id,abstract,title" },
           headers: {
             Authorization: `Bearer:${api_token}`,
           },
@@ -54,6 +54,7 @@ app.post("/", async function (req, res) {
         return res.render("index", {
           ...data,
           abstract: results.response.docs[0].abstract,
+          title: results.response.docs[0].title
         });
       } else {
         return res.render("index", {
