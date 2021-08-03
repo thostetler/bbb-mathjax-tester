@@ -69,4 +69,6 @@ app.post("/", async function (req, res) {
   res.render("index", data);
 });
 
-app.listen(8000);
+app.listen(8000, "", () => {
+  console.log("View app @ http://localhost:8000");
+});
