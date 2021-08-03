@@ -1,0 +1,42 @@
+<form action="/" method="post" style="display: flex;">
+  <div style="padding: 10px;">
+
+    <label for="api_token">API Token</label>
+    <input type="text" name="api_token" value="{{api_token}}" />
+  </div>
+  <div style="padding: 10px">
+    <label for="bibcode">Bibcode</label>
+    <input type="text" name="bibcode" value="{{bibcode}}" />
+  </div>
+  <button type="submit">Submit</button>
+</form>
+
+{{#if error}}
+  <div style="color: red; font-size: large;">{{error}}</div>
+{{/if}}
+
+<div style="display: flex; flex-direction: row;">
+
+  <div>
+
+    <h2>Original</h2>
+    <textarea
+      oninput="absChange();"
+      style="min-height: 36rem; border: solid 1px gray; width: 42rem; padding: 10px; margin-right: 5rem;"
+      id="abstract"
+    >
+      {{abstract}}
+    </textarea>
+  </div>
+
+  <div>
+
+    <h2>MathJax Render</h2>
+    <div
+      style="border: solid 1px gray; max-width: 42rem; padding: 10px;"
+      id="mathjax"
+    >
+      {{{abstract}}}
+    </div>
+  </div>
+</div>

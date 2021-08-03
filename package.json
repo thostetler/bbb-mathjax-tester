@@ -1,0 +1,13 @@
+{
+  "name": "mathjax-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Tim Hostetler",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.2",
+    "handlebars": "^4.7.7"
+  }
+}
